@@ -1,14 +1,14 @@
 
 // For this first set of functions, assume the input array looks like this:
 
-// const petsArray = [
-//     { name: 'spot', type: 'dog' },
-//     { name: 'rover', type: 'dog' },
-//     { name: 'jumpy', type: 'frog' },
-//     { name: 'einstein', type: 'cat' },
-// ];
+const petsArray = [
+    { name: 'spot', type: 'dog' },
+    { name: 'rover', type: 'dog' },
+    { name: 'jumpy', type: 'frog' },
+    { name: 'einstein', type: 'cat' },
+];
 
-
+console.log(petsArray.keys());
 
 // OUTPUT: 
 // [
@@ -219,7 +219,9 @@ Output:
  */
 
 export function makeModelsStringWithReduce(arr) {
-    return arr.map(car => car.model).join('');
+    return arr.reduce((acc, curr) => {
+        return acc + curr.model;
+    }, '');
 }
 
 /*
@@ -229,12 +231,19 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return arr.map(car => car.age).reduce((acc, curr) => {
-        acc = acc + curr;
-        return acc;
+    return arr.reduce((acc, curr) => {
+        return acc + curr.age;
     }, 0);
 }
 
+
+
+
+export function makeKeysString(arr) {
+    return arr.reduce((acc, curr) => {
+        return curr.keys(acc);
+    }, '');
+}
 /*
 
 Output: 
@@ -246,7 +255,14 @@ Output:
  */
 
 export function makeCountObject(arr) {
-    arr.map();
+    return arr.reduce((acc, { type }) => {
+        if(acc[type]) {
+            acc[type]++;
+        } else {
+            acc[type] = 1;
+        }
+        return acc;
+    }, {});
 }
 
 
@@ -258,6 +274,3 @@ Output:
  */
 
 
-export function makeKeysString(arr) {
-    return '';
-}
