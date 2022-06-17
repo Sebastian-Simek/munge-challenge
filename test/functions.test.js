@@ -200,7 +200,7 @@ test('should return an count object', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-test('should return an weird string of keys', (expect) => {
+skip('should return an weird string of keys', (expect) => {
 
 
     const actual = makeKeysString([...vehicles]);
@@ -212,11 +212,3 @@ test('should return an weird string of keys', (expect) => {
 
 });
 
-const petsArray = [
-    { name: 'spot', type: 'dog' },
-    { name: 'rover', type: 'dog' },
-    { name: 'jumpy', type: 'frog' },
-    { name: 'einstein', type: 'cat' },
-];
-
-console.log(petsArray[0]);
